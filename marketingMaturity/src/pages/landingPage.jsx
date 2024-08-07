@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MeshGradientRenderer } from '@johnn-e/react-mesh-gradient';
 import BeginButton from '../components/letsBeginButton';
+import './landingPage.css';
 export default function Landing(){
 const navigate = useNavigate()
 return (
@@ -27,7 +28,7 @@ return (
     </p>
 </div>
 <div className='beginButtonContainer'>
-<BeginButton/>
+<BeginButton onClick={() => navigate('/Demo')}/>
 </div>
 </div>
 )
