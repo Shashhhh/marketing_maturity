@@ -1,25 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MeshGradientRenderer } from '@johnn-e/react-mesh-gradient';
 import BeginButton from '../components/letsBeginButton';
 import './landingPage.css';
+import Gradient from '../components/shaderGradient';
 export default function Landing(){
 const navigate = useNavigate()
 return (
 <div className='container'>
-<MeshGradientRenderer
-    className="gradient"
-    colors={[
-        "#00183c", 
-        "#003750", 
-        "#00e6dc", 
-        "#0cc", 
-        "#099"
-    ]}
-    backgroundOpacity={1}
-    speed={0.01}
-/>
-<div>
+    <Gradient/>
+    <div>
     <h1 className='welcomeHeader'>
         Welcome to the Siemens Marketing Maturity Assessment
     </h1>
@@ -28,7 +17,7 @@ return (
     </p>
 </div>
 <div className='beginButtonContainer'>
-<BeginButton onClick={() => navigate('/Demo')}/>
+<BeginButton onClick={() => navigate('/hello_page')}/>
 </div>
 </div>
 )

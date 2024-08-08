@@ -1,38 +1,39 @@
 .container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  background-color: black;
+  overflow: hidden;
+  .welcomeHeader {
+    position: relative;
+    font-size: 3.25rem;
+    font-weight: bold;
+    width: 50%;
+    margin: 0;
+    margin-left: 5%;
+    line-height: 1.25;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .helperText {
+    margin: 0;
+    width: 40%;
+    font-size: 1.25rem;
+    margin-left: 5%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .beginButtonContainer {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    height: 100vh;
-    width: 100vw;
-    flex-direction: column;
-    .gradient
-    {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-    }
-    .welcomeHeader
-    {
-      display: flex;
-      font-size: 3.25rem;
-      font-weight: bold;
-      width: 50%;
-      margin:0;
-      margin-left: 5%;
-      line-height: 1.25;
-      overflow: hidden;
-    }
-    .helperText
-    {
-      margin: 0;
-      width: 40%;
-      font-size: 1.25rem;
-      margin-left: 5%;  
-    }
-    .beginButtonContainer
-    {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-    }
+    width: 100%;
+    position: relative;
+    z-index: 1;
   }
+}

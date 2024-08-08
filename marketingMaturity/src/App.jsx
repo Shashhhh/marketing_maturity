@@ -1,7 +1,7 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom'
 import Landing from './pages/landingPage';
-import Demo from './pages/demo';
+import HelloPage from './pages/helloPage';
 import './App.css';
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
     <>
     <Routes>
     <Route path="/" element = {<Landing/>}/>
-    <Route path="/demo" element = {<Demo/>}/>
+    <Route path="/hello_page" element = {<HelloPage/>}/>
     </Routes>
     </>
   )
