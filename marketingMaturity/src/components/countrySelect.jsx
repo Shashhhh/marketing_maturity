@@ -7,14 +7,11 @@ export default function CountrySelect() {
 return (
     <Autocomplete
     id="country-select-demo"
-    sx={{ width: 300 }}
+    sx={{ width: 300, margin: 3}}
     options={countries}
     autoHighlight
+    required
     getOptionLabel={(option) => option.label}
-    defaultValue={{
-        code: 'US', 
-        label: 'United States of America'
-    }}
     renderOption={(props, option) => {
         const { key, ...optionProps } = props;
         return (

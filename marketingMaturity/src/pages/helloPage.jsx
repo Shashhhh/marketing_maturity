@@ -5,6 +5,7 @@ import './helloPage.css';
 import BasicButton from '../components/basicButton';
 import CountrySelect from '../components/countrySelect';
 import YesNoGroup from '../components/yesNoRadioGroup';
+import PartnerLevelSelect from '../components/partnerLevelSelect';
 
 function HelloPage() {
     const navigate = useNavigate();
@@ -36,9 +37,10 @@ function HelloPage() {
             <form className='form'>
                 <h1 className='header'>Hello!</h1>
                 <p className='instructions'>
-                    Please fill out the following fields with accurate information to help us better understand your marketing performance and lead generation efforts. All fields are required.
+                    Please fill out the following fields with accurate information to help us better understand your marketing performance. All fields are required.
                 </p>
                 <CountrySelect/>
+                <PartnerLevelSelect/>
                 <YesNoGroup/>
                 
             </form>

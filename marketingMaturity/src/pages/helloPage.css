@@ -7,7 +7,6 @@
     flex-direction: column;
     color: black;
     .instructions {
-        margin-top: 5px;
         font-size: 1rem;
         color: #555;
     }
@@ -24,12 +23,11 @@
     .welcomeDialog
     {
         position: fixed;
-        width: 60vw;
+        width: 40vw;
         border-radius: 10px;
         color: black;
         background-color: white;
         z-index: 2;
-        margin-top: -10%;
         .dialogButtonContainer
         {
         display: flex;
@@ -39,11 +37,10 @@
     .form {
         display: flex;
         flex-direction: column;
-        width: 60vw;
-        height: 90vh;
+        width: 40vw;
+        height: 60vh;
         padding: 20px;
         border-radius: 10px;
         background-color: white;
-        align-items: center;
     }
 }
