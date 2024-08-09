@@ -3,17 +3,3 @@
     margin: 0;
     line-height: 1;
 }
-.nextButtonContainer
-{
-position: absolute;
-right: 0;
-bottom: 0;
-margin:5px;
-}
-.backButtonContainer
-{
-position: absolute;
-left: 0;
-bottom: 0;
-margin: 5px;
-}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NextButton from '../components/nextButton';
 import BackButton from '../components/backButton';
-import './businessGoals_Strategy_Brand.css';
+import '../styles/businessGoals_Strategy_Brand.css';
 
 function BGSB() {
     const navigate = useNavigate();

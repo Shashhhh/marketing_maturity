@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './helloPage.css';
-import BasicButton from '../components/basicButton';
+import '../styles/helloPage.css';
+import BasicRoundButton from '../components/basicRoundButton';
 import CountrySelect from '../components/countrySelect';
 import YesNoGroup from '../components/yesNoRadioGroup';
 import PartnerLevelSelect from '../components/partnerLevelSelect';
@@ -27,7 +27,7 @@ function HelloPage() {
                         </p>
                         <form method="dialog">
                             <div className="dialogButtonContainer">
-                                <BasicButton onClick={handleOverlay}>Start Survey</BasicButton>
+                                <BasicRoundButton onClick={handleOverlay}>Start Survey</BasicRoundButton>
                             </div>
                         </form>
                     </dialog>

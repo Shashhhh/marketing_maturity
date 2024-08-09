@@ -1,8 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import BeginButton from '../components/letsBeginButton';
+import { useNavigate } from 'react-router-dom'; 
 import './landingPage.css';
 import Gradient from '../components/shaderGradient';
+import BasicButton from '../components/basicButton';
 export default function Landing(){
 const navigate = useNavigate()
 return (
@@ -17,7 +17,9 @@ return (
     </p>
 </div>
 <div className='beginButtonContainer'>
-<BeginButton onClick={() => navigate('/helloPage')}/>
+<BasicButton onClick={() => navigate('/helloPage')}>
+    Let's Begin
+</BasicButton>
 </div>
 </div>
 )
