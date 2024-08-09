@@ -17,7 +17,7 @@ return (
     </p>
 </div>
 <div className='beginButtonContainer'>
-<BeginButton onClick={() => navigate('/hello_page')}/>
+<BeginButton onClick={() => navigate('/helloPage')}/>
 </div>
 </div>
 )

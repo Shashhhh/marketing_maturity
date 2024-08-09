@@ -7,7 +7,7 @@ export default function CountrySelect() {
 return (
     <Autocomplete
     id="country-select-demo"
-    sx={{ width: 300, margin: 3}}
+    sx={{ width: 300, marginBottom: 3}}
     options={countries}
     autoHighlight
     required

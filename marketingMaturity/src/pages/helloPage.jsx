@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import './helloPage.css';
 import BasicButton from '../components/basicButton';
 import CountrySelect from '../components/countrySelect';
 import YesNoGroup from '../components/yesNoRadioGroup';
 import PartnerLevelSelect from '../components/partnerLevelSelect';
+import NextButton from '../components/nextButton';
 
 function HelloPage() {
     const navigate = useNavigate();
@@ -13,7 +13,6 @@ function HelloPage() {
     const handleOverlay = () => {
         setShowOverlay(false);
     };
-
     return (
         <div className='helloContainer'>
             {showOverlay && (
@@ -42,7 +41,9 @@ function HelloPage() {
                 <CountrySelect/>
                 <PartnerLevelSelect/>
                 <YesNoGroup/>
-                
+                <div className='nextButtonContainer'>
+                    <NextButton onClick={() => navigate('/BGSB')}/>
+                </div>
             </form>
         </div>
     );

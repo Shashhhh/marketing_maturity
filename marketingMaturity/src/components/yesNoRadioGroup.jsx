@@ -13,7 +13,7 @@ export default function YesNoGroup() {
   };
 
   return (
-    <FormControl sx={{ marginLeft: 3,}}>
+    <FormControl>
       <FormLabel id="demo-controlled-radio-buttons-group">Do you have a dedicated marketing person on staff?</FormLabel>
       <RadioGroup
         aria-labelledby="demo-controlled-radio-buttons-group"

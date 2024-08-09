@@ -9,8 +9,12 @@ const StyledButton = styled(Button)(({ theme }) => ({
   fontSize: 16,
   fontWeight: 'bold',
   backgroundColor: '#099',
+  color: 'white',
+  transition: 'background-color 0.3s, transform 0.3s, color 0.3s',
   '&:hover': {
-    backgroundColor: '#077',
+    backgroundColor: 'rgba(255, 255, 255, 1)',
+    transform: 'scale(1.05)',
+    color: 'black',
   },
 }));
 

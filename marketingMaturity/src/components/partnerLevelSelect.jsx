@@ -13,7 +13,7 @@ export default function PartnerLevelSelect() {
 
   return (
     <div>
-      <FormControl sx={{ marginLeft: 3, marginBottom: 3, width: 300 }}>
+      <FormControl sx={{marginBottom: 3, width: 300 }}>
         <InputLabel id="demo-simple-select-autowidth-label">Partner Level</InputLabel>
         <Select
         labelId="demo-simple-select-autowidth-label"
