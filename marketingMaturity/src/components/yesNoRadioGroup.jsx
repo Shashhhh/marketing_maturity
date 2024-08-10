@@ -5,7 +5,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
-export default function YesNoGroup() {
+export default function YesNoGroup({error}) {
   const [value, setValue] = React.useState(null);
 
   const handleChange = (event) => {
@@ -21,6 +21,7 @@ export default function YesNoGroup() {
         value={value}
         onChange={handleChange}
         required
+        error={error}
       >
         <FormControlLabel  value="Yes" control={<Radio />} label="Yes" />
         <FormControlLabel  value="No" control={<Radio />} label="No" />

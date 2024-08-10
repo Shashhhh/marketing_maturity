@@ -19,31 +19,48 @@
         {
         display: flex;
         justify-content: center;
-    }
+    } 
     }
     .form {
         display: flex;
         flex-direction: column;
         width: 40vw;
         height: 60vh;
-        padding: 20px;
+        padding: 14px 18px;
         border-radius: 11px;
         position: relative;    
         box-shadow: rgb(38, 38, 38) 0px 1px 0px 0px inset;
         border: 0.5px solid rgb(31, 31, 31);
-        transition: transform 0.3s ease; 
         background-color: #1a1a1a;
         .instructions {
             font-size: 1rem;
-            margin-bottom: 5%;
+            margin-bottom: 50px;
+            max-width: 420px;
         }
-    }
-    .form:hover {
-        transform: scale(1.02);
-        transition: transform 0.3s ease;
+        .nextButtonContainer
+        {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            margin: 5px;
+        }
+        .progressBarContainer
+        {
+            display: flex;
+            position: absolute;
+            justify-content: center;
+            align-items: flex-end;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 5px;
+        }
     }
     .blurred {
         filter: blur(20px);
+    }
+    .disabled {
+        pointer-events: none;
     }
 }
 

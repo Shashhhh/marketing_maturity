@@ -1,14 +1,46 @@
-.nextButtonContainer
-{
-position: absolute;
-right: 0;
-bottom: 0;
-margin:5px;
+.formContainer {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .form {
+        display: flex;
+        flex-direction: column;
+        width: 40vw;
+        height: 60vh;
+        padding: 14px 18px;
+        border-radius: 11px;
+        position: relative;    
+        box-shadow: rgb(38, 38, 38) 0px 1px 0px 0px inset;
+        border: 0.5px solid rgb(31, 31, 31);
+        background-color: #1a1a1a;
+        .nextButtonContainer
+        {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            margin: 5px;
+        }
+        .backButtonContainer
+        {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            margin: 5px;
+        }
+        .progressBarContainer
+        {
+            display: flex;
+            position: absolute;
+            justify-content: center;
+            align-items: flex-end;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: 5px;
+        }
+    }
 }
-.backButtonContainer
-{
-position: absolute;
-left: 0;
-bottom: 0;
-margin: 5px;
-}
+

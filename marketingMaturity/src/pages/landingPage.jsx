@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import './landingPage.css';
+import '../styles/landingPage.css';
 import Gradient from '../components/shaderGradient';
 import BasicButton from '../components/basicButton';
 export default function Landing(){

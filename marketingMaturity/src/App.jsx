@@ -9,7 +9,9 @@ import './App.css';
 const theme = createTheme({
   palette: {
     mode: 'dark',
-    primary: teal,
+    primary: {
+      main: '#099',
+    },
     secondary: orange,
   },
   typography: {

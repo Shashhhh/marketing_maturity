@@ -18,8 +18,8 @@ const StyledButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-function BasicRoundButton(props) {
+function PillButton(props) {
   return <StyledButton variant="contained" {...props} />;
 }
 
-export default BasicRoundButton;
+export default PillButton;
