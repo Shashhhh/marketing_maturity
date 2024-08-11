@@ -1,17 +1,18 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-
-export default function CountrySelect({error}) {
+import Box from '@mui/material/Box';
+export default function CountrySelect({error, selectedCountry, setSelectedCountry}) {
 return (
     <Autocomplete
     id="country-select-demo"
-    sx={{ width: 300, marginBottom: '28px'}}
+    sx={{ width: 400, marginBottom: '25px'}}
     options={countries}
     autoHighlight
-    error={error}
-    required
+    value={selectedCountry}
+    onChange={(event, value) => {
+      setSelectedCountry(value);
+  }}
     getOptionLabel={(option) => option.label}
     renderOption={(props, option) => {
         const { key, ...optionProps } = props;
@@ -36,10 +37,12 @@ return (
       renderInput={(params) => (
         <TextField
           {...params}
-          label="What country are you located in?"
+          variant="standard"
+          error={error}
+          helperText={error ? "Please select a country." : ""}
           inputProps={{
             ...params.inputProps,
-            autoComplete: 'new-password', // disable autocomplete and autofill
+            autoComplete: 'new-password',
           }}
         />
       )}

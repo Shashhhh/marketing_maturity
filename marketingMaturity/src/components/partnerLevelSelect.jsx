@@ -5,33 +5,19 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import FormHelperText from '@mui/material/FormHelperText';
 
-export default function PartnerLevelSelect() {
-  const [partnerLevel, setPartnerLevel] = React.useState('');
-  const [error, setError] = React.useState(false);
-
-  const handleChange = (event) => {
-    setPartnerLevel(event.target.value);
-    setError(false);
-  };
-
-  const validateSelection = () => {
-    if (!partnerLevel) {
-      setError(true);
-      return false;
-    }
-    return true;
-  };
-
+export default function PartnerLevelSelect({error, selected, setSelected}) {
   return (
     <div>
-      <FormControl sx={{ marginBottom: '22px', width: 300 }}>
-        <InputLabel id="partner-level-select-label">Partner Level</InputLabel>
+      <FormControl sx={{ marginBottom: '25px', width: 350, textAlign: 'left'}}>
+        <InputLabel id="partner-level-select-label"></InputLabel>
         <Select
           labelId="partner-level-select-label"
           id="partner-level-select"
-          value={partnerLevel}
-          onChange={handleChange}
+          value={selected}
+          onChange={(event) => setSelected(event.target.value)}
           label="Partner Level"
+          variant='standard'
+          error={error}
         >
           <MenuItem value="">
             <em>None</em>
@@ -40,7 +26,9 @@ export default function PartnerLevelSelect() {
           <MenuItem value={'Gold'}>Gold</MenuItem>
           <MenuItem value={'Silver'}>Silver</MenuItem>
         </Select>
-        {error && <FormHelperText>Please select a partner level.</FormHelperText>}
+        {error &&   <FormHelperText sx={{ color: '#f44336' }}>
+            Please select a partner level.
+          </FormHelperText>}
       </FormControl>
     </div>  
   );

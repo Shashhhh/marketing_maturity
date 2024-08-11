@@ -1,31 +1,30 @@
-import * as React from 'react';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import React from 'react';
 import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+import FormHelperText from '@mui/material/FormHelperText';
+import PillButton from './buttons/pillButton';
 
-export default function YesNoGroup({error}) {
-  const [value, setValue] = React.useState(null);
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-  };
-
-  return (
-    <FormControl>
-      <FormLabel id="demo-controlled-radio-buttons-group">Do you have a dedicated marketing person on staff?</FormLabel>
-      <RadioGroup
-        aria-labelledby="demo-controlled-radio-buttons-group"
-        name="controlled-radio-buttons-group"
-        value={value}
-        onChange={handleChange}
-        required
-        error={error}
-      >
-        <FormControlLabel  value="Yes" control={<Radio />} label="Yes" />
-        <FormControlLabel  value="No" control={<Radio />} label="No" />
-      </RadioGroup>
-    </FormControl>
-  );
+export default function YesNoGroup({ error, selected, setSelected }) {
+    return (
+        <FormControl error={error}>
+            <div style={{ display: 'flex', flexDirection: 'row', gap: '10px', marginBottom: 10 }}>
+                <PillButton 
+                    onClick={() => setSelected('yes')} 
+                    style={{ backgroundColor: selected === 'yes' ? '#099' : 'gray' }}
+                >
+                    Yes
+                </PillButton>
+                <PillButton 
+                    onClick={() => setSelected('no')} 
+                    style={{ backgroundColor: selected === 'no' ? '#099' : 'gray' }}
+                >
+                    No  
+                </PillButton>
+            </div>
+            {error && (
+                <FormHelperText style={{ textAlign: 'center' }}>
+                    Please choose an option.
+                </FormHelperText>
+            )}
+        </FormControl>
+    );
 }

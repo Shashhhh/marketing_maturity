@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import NextButton from './nextButton';
-import BackButton from './backButton';
+import NextButton from './buttons/nextButton';
+import BackButton from './buttons/backButton';
 import '../styles/formTemplate.css'
 import RadioButtonsGroup from './radioGroup';
 import ProgressBar from './progressbar';
