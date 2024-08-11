@@ -4,7 +4,7 @@ import '../../styles/introPage.css';
 import NextButton from '../../components/buttons/nextButton';
 import ProgressBar from '../../components/progressbar';
 import { FormControl } from '@mui/material';
-import YesNoGroup from '../../components/yesNoRadioGroup';
+import YesNoGroup from '../../components/introComponents/yesNoRadioGroup';
 import BackButton from '../../components/buttons/backButton';
 function IntroPageMarketing() {
     const navigate = useNavigate();

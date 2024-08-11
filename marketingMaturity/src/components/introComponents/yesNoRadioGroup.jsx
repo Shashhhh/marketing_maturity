@@ -1,7 +1,7 @@
 import React from 'react';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
-import PillButton from './buttons/pillButton';
+import PillButton from '@components/buttons/pillButton';
 
 export default function YesNoGroup({ error, selected, setSelected }) {
     return (
