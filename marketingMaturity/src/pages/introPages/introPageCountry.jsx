@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/introPage.css';
-import CountrySelect from '../../components/countrySelect';
+import CountrySelect from '../../components/introComponents/countrySelect';
 import NextButton from '../../components/buttons/nextButton';
 import ProgressBar from '../../components/progressbar';
 import PillButton from '../../components/buttons/pillButton';

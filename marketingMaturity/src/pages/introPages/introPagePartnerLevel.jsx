@@ -4,7 +4,7 @@ import '../../styles/introPage.css';
 import NextButton from '../../components/buttons/nextButton';
 import BackButton from '../../components/buttons/backButton';
 import ProgressBar from '../../components/progressbar';
-import PartnerLevelSelect from '../../components/partnerLevelSelect';
+import PartnerLevelSelect from '../../components/introComponents/partnerLevelSelect';
 import { FormControl } from '@mui/material';
 
 function IntroPagePartnerLevel() {

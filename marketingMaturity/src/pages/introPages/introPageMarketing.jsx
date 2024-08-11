@@ -14,7 +14,7 @@ function IntroPageMarketing() {
     const handleNextClick = () => {
         if (selected) {
             sessionStorage.setItem('yesNo', JSON.stringify(selected))
-            navigate('/introPageCountry');
+            navigate('/BGSB');
 
         } else {
             setError(true);

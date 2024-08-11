@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../styles/businessGoals_Strategy_Brand.css';
-import FormTemplate from '../components/formTemplate';
+import FormTemplate from '../../components/formTemplate';
 
 function BGSB() {
-    const navigate = useNavigate();
     return (
         <FormTemplate 
             headerText={'Goals, Strategies, and Brand'} 
-            backPath={'/helloPage'} 
+            backPath={'/tempBack'} 
             nextPath={'/temp'}  
             formLabel="Select Best Match"
             options={[

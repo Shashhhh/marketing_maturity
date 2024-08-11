@@ -1,7 +1,7 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom'
 import Landing from './pages/landingPage';
-import BGSB from './pages/businessGoals_Strategy_Brand';
+import BGSB from './pages/formPages/businessGoals_Strategy_Brand';
 import { ThemeProvider, createTheme } from '@mui/material';
 import { orange } from '@mui/material/colors';
 import './App.css';
