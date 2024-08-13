@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import '../../styles/introPage.css';
 import NextButton from '../../components/buttons/nextButton';
 import BackButton from '../../components/buttons/backButton';
 import ProgressBar from '../../components/progressbar';
 import PartnerLevelSelect from '../../components/introComponents/partnerLevelSelect';
 import { FormControl } from '@mui/material';
+import { useFormNav } from '@hooks/useFormNav';
+import { backIn } from 'framer-motion';
 
 function IntroPagePartnerLevel() {
-    const navigate = useNavigate();
-    const [selected, setSelected] = useState(null);
+    const [selected, setSelected] = useState('');
     const [error, setError] = useState(false);
+    const {progress, handleNext, handleBack, navBack} = useFormNav(6);
 
     const handleNextClick = () => {
         if (selected) {
             sessionStorage.setItem('partnerLevel', JSON.stringify(selected))
-            navigate('/introPageMarketing');
+            handleNext('/introPageMarketing');
 
         } else {
             setError(true);
@@ -25,7 +26,7 @@ function IntroPagePartnerLevel() {
         if (selected) {
             sessionStorage.setItem('partnerLevel', JSON.stringify(selected))
         }
-        navigate('/introPageCountry');
+        handleBack('/introPageCountry');
     }
     useEffect(() => {
 
@@ -61,7 +62,7 @@ return (
         
         </FormControl>
         <div className='progressBarContainer'>
-                <ProgressBar progress={10}/>
+                <ProgressBar progress={progress} prevProgress={1} navBack={navBack}/>
         </div>
     </div>
 );

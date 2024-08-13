@@ -1,6 +1,7 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgress';
+import Box from '@mui/material/Box';
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   width: '100%',
@@ -13,8 +14,19 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
-export default function ProgressBar({progress}) {
+export default function ProgressBar({ progress, prevProgress, navBack = false }) {
+  const [currentProgress, setCurrentProgress] = useState(() => navBack ? progress : prevProgress);
+
+
+  useEffect(() => {
+    if (currentProgress < progress && !navBack) {
+      setCurrentProgress(progress);
+    } 
+  }, [progress, navBack, currentProgress]);
+
   return (
+    <Box sx={{ width: '100%' }}>
       <BorderLinearProgress variant="determinate" value={progress} />
+    </Box>
   );
 }

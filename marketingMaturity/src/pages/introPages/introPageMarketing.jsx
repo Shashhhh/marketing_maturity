@@ -6,15 +6,15 @@ import ProgressBar from '../../components/progressbar';
 import { FormControl } from '@mui/material';
 import YesNoGroup from '../../components/introComponents/yesNoRadioGroup';
 import BackButton from '../../components/buttons/backButton';
+import { useFormNav } from '@hooks/useFormNav';
 function IntroPageMarketing() {
-    const navigate = useNavigate();
     const [selected, setSelected] = useState(null);
     const [error, setError] = useState(false);
-
+    const {progress, handleNext, handleBack, navBack} = useFormNav(11);
     const handleNextClick = () => {
         if (selected) {
             sessionStorage.setItem('yesNo', JSON.stringify(selected))
-            navigate('/BGSB');
+            handleNext('/BGSB');
 
         } else {
             setError(true);
@@ -24,7 +24,7 @@ function IntroPageMarketing() {
         if (selected) {
             sessionStorage.setItem('yesNo', JSON.stringify(selected))
         }
-        navigate('/introPagePartnerLevel');
+        handleBack('/introPagePartnerLevel');
     }
     useEffect(() => {
 
@@ -59,7 +59,7 @@ return (
         
         </FormControl>
         <div className='progressBarContainer'>
-                <ProgressBar progress={10}/>
+                <ProgressBar progress={progress} prevProgress={6} navBack={navBack}/>
         </div>
     </div>
 );

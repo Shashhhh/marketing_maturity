@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/introPage.css';
+import '@styles/introPage.css';
 import CountrySelect from '../../components/introComponents/countrySelect';
 import NextButton from '../../components/buttons/nextButton';
 import ProgressBar from '../../components/progressbar';
 import PillButton from '../../components/buttons/pillButton';
 import { FormControl } from '@mui/material';
-
+import { useFormNav } from '@hooks/useFormNav';
 function IntroPageCountry() {
-    const navigate = useNavigate();
     const [showOverlay, setShowOverlay] = useState(false);
     const [selectedCountry, setSelectedCountry] = useState(null);
     const [countryError, setCountryError] = useState(false);
-
+    const { progress, handleNext } = useFormNav(1);
     useEffect(() => {
         const hasVisited = sessionStorage.getItem('hasVisited');
         if (!hasVisited) {
@@ -33,11 +32,11 @@ function IntroPageCountry() {
     const handleNextClick = () => {
         if (selectedCountry) {
             sessionStorage.setItem('selectedCountry', JSON.stringify(selectedCountry));
-            navigate('/introPagePartnerLevel');
+            handleNext('/introPagePartnerLevel');
         } else {
             setCountryError(true);
         }
-    };
+    }
 
     const handleCountrySelect = (country) => {
         setSelectedCountry(country);
@@ -75,7 +74,7 @@ function IntroPageCountry() {
             </FormControl>
 
             <div className="progressBarContainer">
-                <ProgressBar progress={1} />
+                <ProgressBar progress={progress} prevProgress={1} />
             </div>
         </div>
     );

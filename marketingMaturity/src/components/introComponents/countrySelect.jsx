@@ -46,6 +46,7 @@ return (
           }}
         />
       )}
+      isOptionEqualToValue={(option, value) => option.code === value.code}
     />
   );
 }

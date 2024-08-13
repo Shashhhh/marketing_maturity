@@ -13,15 +13,12 @@ export default function PartnerLevelSelect({error, selected, setSelected}) {
         <Select
           labelId="partner-level-select-label"
           id="partner-level-select"
-          value={selected}
+          value={selected || ''}
           onChange={(event) => setSelected(event.target.value)}
           label="Partner Level"
           variant='standard'
           error={error}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
           <MenuItem value={'Platinum'}>Platinum</MenuItem>
           <MenuItem value={'Gold'}>Gold</MenuItem>
           <MenuItem value={'Silver'}>Silver</MenuItem>
