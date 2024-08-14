@@ -1,6 +1,6 @@
 import React from 'react';
 import { ResponsiveRadar } from '@nivo/radar';
-
+import '@styles/chartPage.css'
 const RadarChart = ({ formData }) => {
     const chartData = Object.keys(formData).map((key) => {
         return {
@@ -10,30 +10,48 @@ const RadarChart = ({ formData }) => {
     });
 
     return (
-        <div style={{ height: '400px' }}>
+        <div className='radarChart'>
             <ResponsiveRadar
                 data={chartData}
                 keys={['score']}
                 indexBy="criteria"
                 maxValue={5}
-                margin={{ top: 70, right: 80, bottom: 40, left: 80 }}
+                margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
                 curve="linearClosed"
                 borderWidth={2}
                 borderColor={{ from: 'color' }}
                 gridLevels={5}
-                gridShape="circular"
-                gridLabelOffset={36}
+                gridLabelOffset={25}
                 enableDots={true}
                 dotSize={8}
-                dotColor={{ theme: 'background' }}
+                dotColor='#ffffff'
                 dotBorderWidth={2}
                 dotBorderColor={{ from: 'color' }}
-                colors={{ scheme: 'nivo' }}
-                fillOpacity={0.25}
+                colors='#099'
+                fillOpacity={0.55}
                 blendMode="multiply"
                 animate={true}
                 motionConfig="wobbly"
-                isInteractive={true}
+                gridShape="linear"
+                isInteractive={false}
+                theme={{
+                    "axis": {
+                        "legend": {
+                            "text": {
+                                "fontFamily": 'Quicksand',
+                                "fontSize": 16,
+                                "fill": "rgba(255, 255, 255, 0.75)",
+                            }
+                        },
+                        "ticks": {
+                            "text": {
+                                "fontFamily": 'Quicksand',
+                                "fontSize": 16  ,
+                                "fill": "rgba(255, 255, 255, 0.75)",
+                            }
+                        },
+                    }
+                }}
             />
         </div>
     );

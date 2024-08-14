@@ -6,10 +6,12 @@ const pages = [
     '/introPagePartnerLevel', 
     '/introPageMarketing',
     '/BGSB',
-    '/customerDefiniton',
-    '/marketingDefiniton',
+    '/customerDefinition',
+    '/marketingExecutionPlan',
     '/marketingCapacity',
-    '/Database Building',
+    '/databaseBuilding',
+    '/contentDevelopment',
+    '/results',
 ];
 
 export function useFormNav() {
@@ -19,10 +21,9 @@ export function useFormNav() {
 
     useEffect(() => {
         const pageIndex = pages.indexOf(currentPage);
-        console.log("page: " + pageIndex);
         
         if (pageIndex !== -1) {
-            const newProgress = 1 + pageIndex * 10;
+            const newProgress = 1 + pageIndex * 8;
             const currProgress = sessionStorage.getItem('progress');
             if (newProgress >  currProgress)
             {

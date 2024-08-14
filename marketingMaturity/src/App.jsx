@@ -8,12 +8,13 @@ import './App.css';
 import IntroPageCountry from './pages/introPages/introPageCountry';
 import IntroPagePartnerLevel from './pages/introPages/introPagePartnerLevel';
 import IntroPageMarketing from './pages/introPages/introPageMarketing';
-import ChartPage from './pages/chartPage';
 import CustomerDefinition from './pages/formPages/customerDefinition';
 import MarketingExecutionPlan from './pages/formPages/marketingExecutionPlan';
 import MarketingCapacity from './pages/formPages/marketingCapacity';
 import DatabaseBuilding from './pages/formPages/databaseBuilding';
 import ContentDevelopment from './pages/formPages/contentDevelopment';
+import BarChartPage from './pages/barChartPage';
+import RadarChartPage from './pages/radarChartPage';
 
 const theme = createTheme({
   palette: {
@@ -77,7 +78,8 @@ function App() {
             setFormData={setFormData}
           />
         } />
-        <Route path="/results" element={<ChartPage formData={formData} />} />
+        <Route path="/barChart" element={<BarChartPage formData={formData} />} />
+        <Route path="/radarChart" element={<RadarChartPage formData={formData} />} />
       </Routes>
     </ThemeProvider>
   );

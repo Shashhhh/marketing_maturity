@@ -6,7 +6,7 @@ function ContentDevelopment({ formData, setFormData }) {
         <FormTemplate 
             headerText={'Content Development'} 
             backPath={'/databaseBuilding'} 
-            nextPath={'/results'}
+            nextPath={'/barChart'}
             formLabel={"Select Best Match"}
             options={[
                 "Neither Siemens campaign content is actively promoted nor is original content created.",
