@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import '../../styles/introPage.css';
 import NextButton from '../../components/buttons/nextButton';
 import ProgressBar from '../../components/progressbar';
@@ -10,7 +9,8 @@ import { useFormNav } from '@hooks/useFormNav';
 function IntroPageMarketing() {
     const [selected, setSelected] = useState(null);
     const [error, setError] = useState(false);
-    const {progress, handleNext, handleBack, navBack} = useFormNav(11);
+    const {handleNext, handleBack} = useFormNav();
+    
     const handleNextClick = () => {
         if (selected) {
             sessionStorage.setItem('yesNo', JSON.stringify(selected))
@@ -59,7 +59,7 @@ return (
         
         </FormControl>
         <div className='progressBarContainer'>
-                <ProgressBar progress={progress} prevProgress={6} navBack={navBack}/>
+                <ProgressBar/>
         </div>
     </div>
 );

@@ -14,19 +14,11 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
-export default function ProgressBar({ progress, prevProgress, navBack = false }) {
-  const [currentProgress, setCurrentProgress] = useState(() => navBack ? progress : prevProgress);
-
-
-  useEffect(() => {
-    if (currentProgress < progress && !navBack) {
-      setCurrentProgress(progress);
-    } 
-  }, [progress, navBack, currentProgress]);
-
+export default function ProgressBar() {
+    const storedProgress = sessionStorage.getItem('progress');
   return (
     <Box sx={{ width: '100%' }}>
-      <BorderLinearProgress variant="determinate" value={progress} />
+      <BorderLinearProgress variant="determinate" value={storedProgress} />
     </Box>
   );
 }

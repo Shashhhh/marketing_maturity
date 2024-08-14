@@ -8,17 +8,26 @@ import { styled } from '@mui/material/styles';
 
 const OptionContainer = styled('div')(({ theme }) => ({
     padding: theme.spacing(1),
-    borderBottom: '1px solid #ddd',
-    '&:last-child': {
-        borderBottom: 'none'
-    }
+    border: '1px solid #ddd',
+    borderRadius: '4px',
+    marginTop: theme.spacing(1),
+    textAlign: 'left',
 }));
 
-export default function RadioButtonsGroup({ formLabel, options }) {
+const StyledFormLabel = styled(FormLabel)(({ theme }) => ({
+    marginBottom: theme.spacing(1),
+}));
+
+export default function RadioButtonsGroup({ formLabel, options, selectedValue, onValueChange, error }) {
     return (
-        <FormControl sx={{ marginTop: 2 }} required>
-            <FormLabel id={formLabel}>{formLabel}</FormLabel>
-            <RadioGroup aria-labelledby={formLabel} name="radio-buttons-group">
+        <FormControl sx={{ marginTop: 2 }} required error={error}>
+            <StyledFormLabel id={formLabel}>{formLabel}</StyledFormLabel>
+            <RadioGroup
+                aria-labelledby={formLabel}
+                name="radio-buttons-group"
+                value={selectedValue}
+                onChange={(e) => onValueChange(e.target.value)}
+            >
                 {options.map((option, index) => (
                     <OptionContainer key={index}>
                         <FormControlLabel

@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FormTemplate from '../../components/formTemplate';
 
-function BGSB() {
+function BGSB({formData, setFormData}) {
     return (
         <FormTemplate 
             headerText={'Goals, Strategies, and Brand'} 
             backPath={'/introPageMarketing'} 
-            nextPath={'/barChart'}  
-            formLabel="Select Best Match"
+            nextPath={'/customerDefinition'}  
+            formLabel={"Select Best Match"}
             options={[
                 'No business goals or strategy defined. No discernable brand identity. No brand standards or governance.',
                 'Some definition of business goals, strategy, and brand. Minimum levels of brand standards or governance.',
@@ -15,7 +15,8 @@ function BGSB() {
                 'Formal business goals, strategy, and brand identity all clearly defined and aligned. Brand standards enforced with reasonable consistency.',
                 'Formal business goals, strategy, and brand identity all clearly defined and aligned. Brand is recognized by the market. Brand standards deeply enforced.'
             ]}
-            progress={10}
+            formData={formData}
+            setFormData={setFormData}
         >
         </FormTemplate>
     );

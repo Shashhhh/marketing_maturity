@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import '@styles/introPage.css';
 import CountrySelect from '../../components/introComponents/countrySelect';
 import NextButton from '../../components/buttons/nextButton';
@@ -11,7 +10,7 @@ function IntroPageCountry() {
     const [showOverlay, setShowOverlay] = useState(false);
     const [selectedCountry, setSelectedCountry] = useState(null);
     const [countryError, setCountryError] = useState(false);
-    const { progress, handleNext } = useFormNav(1);
+    const {handleNext } = useFormNav();
     useEffect(() => {
         const hasVisited = sessionStorage.getItem('hasVisited');
         if (!hasVisited) {
@@ -74,7 +73,7 @@ function IntroPageCountry() {
             </FormControl>
 
             <div className="progressBarContainer">
-                <ProgressBar progress={progress} prevProgress={1} />
+                <ProgressBar/>
             </div>
         </div>
     );

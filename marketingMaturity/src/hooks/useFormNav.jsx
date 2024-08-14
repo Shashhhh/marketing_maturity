@@ -1,38 +1,43 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-export function useFormNav(currProgress) {
+const pages = [
+    '/introPageCountry', 
+    '/introPagePartnerLevel', 
+    '/introPageMarketing',
+    '/BGSB',
+    '/customerDefiniton',
+    '/marketingDefiniton',
+    '/marketingCapacity',
+    '/Database Building',
+];
+
+export function useFormNav() {
     const navigate = useNavigate();
-    const [navBack, setNavBack] = useState(false);
-    const [progress, setProgress] = useState(() => {
-        const savedProgress = Number(sessionStorage.getItem('progress'));
-        return savedProgress || currProgress;
-    });
+    const location = useLocation();
+    const currentPage = location.pathname;
 
     useEffect(() => {
-        const savedProgress = Number(sessionStorage.getItem('progress'));
-        if (savedProgress === 0) {
-            sessionStorage.setItem('progress', currProgress);
+        const pageIndex = pages.indexOf(currentPage);
+        console.log("page: " + pageIndex);
+        
+        if (pageIndex !== -1) {
+            const newProgress = 1 + pageIndex * 10;
+            const currProgress = sessionStorage.getItem('progress');
+            if (newProgress >  currProgress)
+            {
+                sessionStorage.setItem('progress', newProgress);
+            }
         }
-    }, []);
+    }, [currentPage]);
 
-    const handleNext = (path, increment = 5) => {
-        const savedProgress = Number(sessionStorage.getItem('progress'));
-
-        if (currProgress >= savedProgress) {
-            const newProgress = savedProgress + increment;
-            sessionStorage.setItem('progress', newProgress);
-            setProgress(newProgress);
-        }
+    const handleNext = (path) => {
         navigate(path);
     };
 
     const handleBack = (path) => {
-        setNavBack(true);
-        setTimeout(() => {
-            navigate(path);
-        }, 0);
+        navigate(path);
     };
 
-    return { progress, handleNext, handleBack, navBack};
+    return {handleNext, handleBack};
 }

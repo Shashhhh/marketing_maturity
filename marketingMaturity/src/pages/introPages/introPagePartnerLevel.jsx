@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import '../../styles/introPage.css';
-import NextButton from '../../components/buttons/nextButton';
-import BackButton from '../../components/buttons/backButton';
-import ProgressBar from '../../components/progressbar';
-import PartnerLevelSelect from '../../components/introComponents/partnerLevelSelect';
+import '@styles/introPage.css';
+import NextButton from '@components/buttons/nextButton';
+import BackButton from '@components/buttons/backButton';
+import ProgressBar from '@components/progressbar';
+import PartnerLevelSelect from '@components/introComponents/partnerLevelSelect';
 import { FormControl } from '@mui/material';
 import { useFormNav } from '@hooks/useFormNav';
-import { backIn } from 'framer-motion';
 
 function IntroPagePartnerLevel() {
     const [selected, setSelected] = useState('');
     const [error, setError] = useState(false);
-    const {progress, handleNext, handleBack, navBack} = useFormNav(6);
+    const {handleNext, handleBack} = useFormNav();
 
     const handleNextClick = () => {
         if (selected) {
@@ -59,10 +58,9 @@ return (
             </div>
             </div>
             
-        
         </FormControl>
         <div className='progressBarContainer'>
-                <ProgressBar progress={progress} prevProgress={1} navBack={navBack}/>
+                <ProgressBar/>
         </div>
     </div>
 );
