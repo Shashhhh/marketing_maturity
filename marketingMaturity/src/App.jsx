@@ -24,6 +24,8 @@ const theme = createTheme({
     fontWeightBold: 700,
   }
 })
+[formData, setFormData] = useState({});
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -35,9 +37,6 @@ function App() {
     <Route path="/BGSB" element = {<BGSB/>}/>
     </Routes>
     </ThemeProvider>
-
-
-
   )
 }
 

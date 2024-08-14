@@ -5,8 +5,8 @@ function BGSB() {
     return (
         <FormTemplate 
             headerText={'Goals, Strategies, and Brand'} 
-            backPath={'/tempBack'} 
-            nextPath={'/temp'}  
+            backPath={'/introPageMarketing'} 
+            nextPath={'/barChart'}  
             formLabel="Select Best Match"
             options={[
                 'No business goals or strategy defined. No discernable brand identity. No brand standards or governance.',

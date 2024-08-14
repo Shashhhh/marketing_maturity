@@ -25,6 +25,7 @@ function FormTemplate({ headerText, nextPath, backPath, formLabel, options, prog
             <div className='progressBarContainer'>
                 <ProgressBar progress={10}/>
             </div>
+            
         </div>
     );
 }
