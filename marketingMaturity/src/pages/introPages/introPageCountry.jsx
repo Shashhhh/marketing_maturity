@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import '@styles/introPage.css';
 import CountrySelect from '../../components/introComponents/countrySelect';
 import NextButton from '../../components/buttons/nextButton';
@@ -6,11 +7,36 @@ import ProgressBar from '../../components/progressbar';
 import PillButton from '../../components/buttons/pillButton';
 import { FormControl } from '@mui/material';
 import { useFormNav } from '@hooks/useFormNav';
+
+const container = {
+    beginning: {},
+    final: { 
+        transition: { 
+            staggerChildren: 0.3
+        } 
+    },
+    exit: { opacity: 0 }
+};
+
+const item = {
+    beginning: { opacity: 0, y: -20 },
+    final: { 
+        opacity: 1, 
+        y: 0,
+        transition: {
+            duration: 1,
+            ease: 'easeOut' 
+        }
+    }
+};
+
 function IntroPageCountry() {
     const [showOverlay, setShowOverlay] = useState(false);
     const [selectedCountry, setSelectedCountry] = useState(null);
     const [countryError, setCountryError] = useState(false);
-    const {handleNext } = useFormNav();
+    const { handleNext } = useFormNav();
+    const [animate, setAnimate] = useState(false);
+
     useEffect(() => {
         const hasVisited = sessionStorage.getItem('hasVisited');
         if (!hasVisited) {
@@ -26,6 +52,7 @@ function IntroPageCountry() {
     const handleOverlay = () => {
         setShowOverlay(false);
         sessionStorage.setItem('hasVisited', 'true');
+        setAnimate(true);
     };
 
     const handleNextClick = () => {
@@ -43,7 +70,13 @@ function IntroPageCountry() {
     };
 
     return (
-        <div className='introContainer'>
+        <motion.div 
+            className='introContainer' 
+            variants={container} 
+            initial="beginning" 
+            animate={animate ? "final" : "beginning"}
+            exit="exit"
+        >
             {showOverlay && (
                 <dialog className="welcomeDialog" open>
                     <span style={{ fontWeight: 'bold' }}>
@@ -60,22 +93,23 @@ function IntroPageCountry() {
                 </dialog>
             )}
             <FormControl className={`form ${showOverlay ? 'blurred disabled' : ''}`}>
-                <h1>
+                <motion.h1 variants={item}>
                     What country are you located in?
-                </h1>
+                </motion.h1>
 
-                <CountrySelect setSelectedCountry={handleCountrySelect} selectedCountry={selectedCountry} error={countryError} />
+                <motion.div variants={item}>
+                    <CountrySelect setSelectedCountry={handleCountrySelect} selectedCountry={selectedCountry} error={countryError} />
+                </motion.div>
 
-                <div className='nextButtonContainer'>
+                <motion.div className='nextButtonContainer' variants={item}>
                     <NextButton onClick={handleNextClick} />
-                </div>
-
+                </motion.div>
             </FormControl>
 
-            <div className="progressBarContainer">
-                <ProgressBar/>
-            </div>
-        </div>
+            <motion.div className="progressBarContainer" variants={item}>
+                <ProgressBar />
+            </motion.div>
+        </motion.div>
     );
 }
 
