@@ -11,7 +11,8 @@ const pages = [
     '/marketingCapacity',
     '/databaseBuilding',
     '/contentDevelopment',
-    '/results',
+    '/barChart',
+    '/radarChart',
 ];
 
 export function useFormNav() {
@@ -23,7 +24,7 @@ export function useFormNav() {
         const pageIndex = pages.indexOf(currentPage);
         
         if (pageIndex !== -1) {
-            const newProgress = 1 + pageIndex * 8;
+            const newProgress = 1 + pageIndex * 10;
             const currProgress = sessionStorage.getItem('progress');
             if (newProgress >  currProgress)
             {

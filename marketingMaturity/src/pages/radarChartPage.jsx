@@ -4,6 +4,7 @@ import '@styles/chartPage.css'
 import { useFormNav } from '../hooks/useFormNav';
 import BackButton from '../components/buttons/backButton';
 import NextButton from '../components/buttons/nextButton';
+import ProgressBar from '../components/progressbar';
 const RadarChartPage = ({formData}) => {
     const {handleBack, handleNext} = useFormNav();
     const handleNextClick = () => {
@@ -24,6 +25,9 @@ return (
             <div className='nextButtonContainer'>
                 <NextButton onClick={handleNextClick} />
             </div>
+            </div>
+            <div className="progressBarContainer">
+                <ProgressBar/>
             </div>
     </div>
 );
