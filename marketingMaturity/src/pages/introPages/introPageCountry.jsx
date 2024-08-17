@@ -34,15 +34,16 @@ function IntroPageCountry() {
     const [showOverlay, setShowOverlay] = useState(false);
     const [selectedCountry, setSelectedCountry] = useState(null);
     const [countryError, setCountryError] = useState(false);
-    const { handleNext } = useFormNav();
+    const { handleNext, pageIndex } = useFormNav();
     const [animate, setAnimate] = useState(false);
 
     useEffect(() => {
         const hasVisited = sessionStorage.getItem('hasVisited');
         if (!hasVisited) {
             setShowOverlay(true);
+        } else {
+            setAnimate(true);
         }
-
         const savedCountry = sessionStorage.getItem('selectedCountry');
         if (savedCountry) {
             setSelectedCountry(JSON.parse(savedCountry));
@@ -94,9 +95,8 @@ function IntroPageCountry() {
             )}
             <FormControl className={`form ${showOverlay ? 'blurred disabled' : ''}`}>
                 <motion.h1 variants={item}>
-                    What country are you located in?
+                What country are you located in?
                 </motion.h1>
-
                 <motion.div variants={item}>
                     <CountrySelect setSelectedCountry={handleCountrySelect} selectedCountry={selectedCountry} error={countryError} />
                 </motion.div>
@@ -105,12 +105,10 @@ function IntroPageCountry() {
                     <NextButton onClick={handleNextClick} />
                 </motion.div>
             </FormControl>
-
-            <motion.div className="progressBarContainer" variants={item}>
-                <ProgressBar />
-            </motion.div>
         </motion.div>
     );
 }
 
 export default IntroPageCountry;
+
+            

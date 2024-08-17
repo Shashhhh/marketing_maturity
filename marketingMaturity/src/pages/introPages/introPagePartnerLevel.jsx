@@ -84,11 +84,13 @@ function IntroPagePartnerLevel() {
                 </motion.div>
             </FormControl>
 
-            <motion.div className="progressBarContainer" variants={item}>
-                <ProgressBar />
-            </motion.div>
         </motion.div>
     );
 }
 
 export default IntroPagePartnerLevel;
+/*
+            <motion.div className="progressBarContainer" variants={item}>
+                <ProgressBar />
+            </motion.div>
+*/

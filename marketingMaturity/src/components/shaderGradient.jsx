@@ -10,6 +10,7 @@ export default function Gradient() {
     importedfiber={{ ...fiber, ...drei, ...reactSpring }}
     style={{position: 'absolute',
         top: 0,
+        pointerEvents: 'none',
     }}
     >
     <ShaderGradient

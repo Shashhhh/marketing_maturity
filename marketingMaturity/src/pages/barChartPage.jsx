@@ -54,11 +54,13 @@ const BarChartPage = ({ formData }) => {
                     <NextButton onClick={handleNextClick} />
                 </div>
             </motion.div>
-            <motion.div className="progressBarContainer" variants={item}>
-                <ProgressBar />
-            </motion.div>
         </motion.div>
     );
 };
 
 export default BarChartPage;
+/*
+            <motion.div className="progressBarContainer" variants={item}>
+                <ProgressBar />
+            </motion.div>
+*/

@@ -74,11 +74,13 @@ function FormTemplate({ headerText, nextPath, backPath, formLabel, options, form
                     </div>
                 </motion.div>
             </motion.form>
-            <motion.div className="progressBarContainer" variants={item}>
-                <ProgressBar />
-            </motion.div>
         </motion.div>
     );
 }
 
 export default FormTemplate;
+/*
+            <motion.div className="progressBarContainer" variants={item}>
+                <ProgressBar />
+            </motion.div>
+*/

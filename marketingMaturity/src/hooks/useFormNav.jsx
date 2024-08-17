@@ -19,6 +19,7 @@ export function useFormNav() {
     const navigate = useNavigate();
     const location = useLocation();
     const currentPage = location.pathname;
+    const pageIndex = pages.indexOf(currentPage) + 1;
 
     useEffect(() => {
         const pageIndex = pages.indexOf(currentPage);
@@ -34,6 +35,7 @@ export function useFormNav() {
     }, [currentPage]);
 
     const handleNext = (path) => {
+
         navigate(path);
     };
 
@@ -41,5 +43,5 @@ export function useFormNav() {
         navigate(path);
     };
 
-    return {handleNext, handleBack};
+    return {handleNext, handleBack, pageIndex};
 }

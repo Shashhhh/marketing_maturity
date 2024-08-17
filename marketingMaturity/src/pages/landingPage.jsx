@@ -52,7 +52,7 @@ function Landing() {
                 variants={item}
             >
                 <BasicButton onClick={() => navigate('/introPageCountry')}>
-                    Let's Begin
+                    LET'S BEGIN
                 </BasicButton>
             </motion.div>
         </motion.div>

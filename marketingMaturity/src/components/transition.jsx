@@ -13,7 +13,6 @@ const transition = (TransComponent) => {
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                 />
                 
-
                 <motion.div
                 className="slideOut"
                 initial={{scaleY: 1}}

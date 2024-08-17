@@ -55,11 +55,13 @@ const RadarChartPage = ({ formData }) => {
                     <NextButton onClick={handleNextClick} />
                 </div>
             </motion.div>
-            <motion.div className="progressBarContainer" variants={item}>
-                <ProgressBar />
-            </motion.div>
         </motion.div>
     );
 };
 
 export default RadarChartPage;
+/*
+            <motion.div className="progressBarContainer" variants={item}>
+                <ProgressBar />
+            </motion.div>
+*/
