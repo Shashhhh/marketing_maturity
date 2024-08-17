@@ -7,7 +7,7 @@ import ProgressBar from '../../components/progressbar';
 import PillButton from '../../components/buttons/pillButton';
 import { FormControl } from '@mui/material';
 import { useFormNav } from '@hooks/useFormNav';
-
+import BackButton from '../../components/buttons/backButton';
 const container = {
     beginning: {},
     final: { 
@@ -44,7 +44,7 @@ function IntroPageCountry() {
     const [showOverlay, setShowOverlay] = useState(false);
     const [selectedCountry, setSelectedCountry] = useState(null);
     const [countryError, setCountryError] = useState(false);
-    const { handleNext, pageIndex } = useFormNav();
+    const { handleNext, handleBack } = useFormNav();
     const [animate, setAnimate] = useState(false);
 
     useEffect(() => {
@@ -73,6 +73,12 @@ function IntroPageCountry() {
         } else {
             setCountryError(true);
         }
+    }  
+    const handleBackClick = () => {
+        if (selectedCountry) {
+            sessionStorage.setItem('selectedCountry', JSON.stringify(selectedCountry));
+        }
+        handleBack('/');
     }
 
     const handleCountrySelect = (country) => {
@@ -118,8 +124,13 @@ function IntroPageCountry() {
                     <CountrySelect setSelectedCountry={handleCountrySelect} selectedCountry={selectedCountry} error={countryError} />
                 </motion.div>
 
-                <motion.div className='nextButtonContainer' variants={item}>
-                    <NextButton onClick={handleNextClick} />
+                <motion.div className='navButtonContainer' variants={item}>
+                    <div className="backButtonContainer">
+                        <BackButton onClick={handleBackClick} />
+                    </div>
+                    <div className='nextButtonContainer'>
+                        <NextButton onClick={handleNextClick} />
+                    </div>
                 </motion.div>
             </FormControl>
         </motion.div>
