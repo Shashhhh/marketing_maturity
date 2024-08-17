@@ -30,6 +30,16 @@ const item = {
     }
 };
 
+const overlayAnimation = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { 
+        opacity: 1, 
+        scale: 1,
+        transition: { duration: 0.5, ease: 'easeOut' }
+    },
+    exit: { opacity: 0, scale: 0.9, transition: { duration: 0.3 } }
+};
+
 function IntroPageCountry() {
     const [showOverlay, setShowOverlay] = useState(false);
     const [selectedCountry, setSelectedCountry] = useState(null);
@@ -79,7 +89,14 @@ function IntroPageCountry() {
             exit="exit"
         >
             {showOverlay && (
-                <dialog className="welcomeDialog" open>
+                <motion.dialog 
+                    className="welcomeDialog" 
+                    open 
+                    variants={overlayAnimation} 
+                    initial="hidden" 
+                    animate="visible" 
+                    exit="exit"
+                >
                     <span style={{ fontWeight: 'bold' }}>
                         Survey Disclaimer
                     </span>
@@ -91,7 +108,7 @@ function IntroPageCountry() {
                             <PillButton onClick={handleOverlay}>Start Survey</PillButton>
                         </div>
                     </form>
-                </dialog>
+                </motion.dialog>
             )}
             <FormControl className={`form ${showOverlay ? 'blurred disabled' : ''}`}>
                 <motion.h1 variants={item}>
@@ -110,5 +127,3 @@ function IntroPageCountry() {
 }
 
 export default IntroPageCountry;
-
-            
