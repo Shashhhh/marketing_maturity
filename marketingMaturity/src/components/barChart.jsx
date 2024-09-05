@@ -1,8 +1,18 @@
 import React from 'react';
 import { ResponsiveBar } from '@nivo/bar';
 import '@styles/chartPage.css';
-const BarChart = ({ formData }) => {
-    const data = Object.entries(formData).map(([key, value]) => ({
+
+const BarChart = ({ formData, chartId }) => {
+    const splitData = (data, chartId) => {
+        const entries = Object.entries(data);
+        const mid = Math.ceil(entries.length / 2);
+        if (chartId === 'chart1') {
+            return entries.slice(0, mid);
+        }
+        return entries.slice(mid);
+    };
+
+    const data = splitData(formData, chartId).map(([key, value]) => ({
         id: key,
         value: parseInt(value, 10),
     }));
@@ -10,6 +20,7 @@ const BarChart = ({ formData }) => {
     return (
         <div className='barChart'>
             <ResponsiveBar
+                layout='vertical'
                 data={data}
                 keys={['value']}
                 indexBy="id"
@@ -23,7 +34,6 @@ const BarChart = ({ formData }) => {
                 axisTop={null}
                 axisRight={null}
                 theme={{
-                    
                     "axis": {
                         "legend": {
                             "text": {

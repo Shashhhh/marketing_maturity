@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import BarChart from '../components/barChart';
+import BarChart from '@components/barChart';
 import '@styles/chartPage.css';
-import { useFormNav } from '../hooks/useFormNav';
-import BackButton from '../components/buttons/backButton';
-import NextButton from '../components/buttons/nextButton';
-import ProgressBar from '../components/progressbar';
+import { useFormNav } from '@hooks/useFormNav';
+import BackButton from '@components/buttons/backButton';
+import NextButton from '@components/buttons/nextButton';
+import ProgressBar from '@components/progressbar';
 
 const container = {
     beginning: {},
@@ -37,14 +37,15 @@ const BarChartPage = ({ formData }) => {
     };
 
     const handleBackClick = () => {
-        handleBack('/contentDevelopment');
+        handleBack('/reportingAnalysis');
     };
 
     return (
         <motion.div className='chartContainer' variants={container} initial="beginning" animate="final" exit="exit">
             <motion.h1 variants={item}>Marketing Maturity Assessment</motion.h1>
-            <motion.div variants={item}>
-                <BarChart formData={formData} />
+            <motion.div className='barChartContainer' variants={item}>
+                <BarChart formData={formData} chartId="chart1" />
+                <BarChart formData={formData} chartId="chart2" />
             </motion.div>
             <motion.div className='navButtonContainer' variants={item}>
                 <div className="backButtonContainer">
@@ -59,8 +60,3 @@ const BarChartPage = ({ formData }) => {
 };
 
 export default BarChartPage;
-/*
-            <motion.div className="progressBarContainer" variants={item}>
-                <ProgressBar />
-            </motion.div>
-*/
