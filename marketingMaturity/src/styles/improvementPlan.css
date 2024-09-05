@@ -1,0 +1,19 @@
+.improvementContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    overflow: hidden;
+    .welcomeHeader {
+    position: relative;
+    font-size: 3.25rem;
+    font-weight: bold;
+    line-height: 1.2;
+    overflow: hidden;
+    z-index: 1;
+    }
+
+  }
+  

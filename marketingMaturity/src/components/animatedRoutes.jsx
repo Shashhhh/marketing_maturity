@@ -8,6 +8,7 @@ import IntroPageMarketing from '@pages/introPages/introPageMarketing';
 import BarChartPage from '@pages/barChartPage';
 import RadarChartPage from '@pages/radarChartPage';
 import { BGSB, CustomerDefinition, MarketingExecutionPlan, MarketingCapacity, DatabaseBuilding, ContentDevelopment, CampaignExecution, OutboundMarketing, InboundMarketing, LeadManagement, ReportingAnalysis } from '@pages/formPages';
+import ImprovementPlan from '@pages/improvementPlanPage';
 
 function AnimatedRoutes() {
     const [formData, setFormData] = useState({});
@@ -35,6 +36,7 @@ function AnimatedRoutes() {
                 
                 <Route path="/barChart" element={<BarChartPage formData={formData} />} />
                 <Route path="/radarChart" element={<RadarChartPage formData={formData} />} />
+                <Route path="/improvementPlan" element= {<ImprovementPlan formData={formData}/>}/>
             </Routes>
         </AnimatePresence>
     );
