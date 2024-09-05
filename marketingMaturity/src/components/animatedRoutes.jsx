@@ -33,7 +33,6 @@ function AnimatedRoutes() {
                 <Route path="/leadManagement" element={<LeadManagement formData={formData} setFormData={setFormData} />} />
                 <Route path="/reportingAnalysis" element={<ReportingAnalysis formData={formData} setFormData={setFormData} />} />
                 
-                {/* Chart Pages */}
                 <Route path="/barChart" element={<BarChartPage formData={formData} />} />
                 <Route path="/radarChart" element={<RadarChartPage formData={formData} />} />
             </Routes>

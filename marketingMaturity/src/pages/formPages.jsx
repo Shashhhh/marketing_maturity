@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FormTemplate from '../../components/formTemplate';
+import FormTemplate from '@components/formTemplate';
 
 // Section for Business Goals, Strategy, and Brand
 export function BGSB({ formData, setFormData }) {
